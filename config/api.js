@@ -25,5 +25,7 @@ export default {
     addGift: '/admin/add-gift',
     editGift: '/admin/edit-gift',
     getGiftCate: '/giftcate',
-    getGiftsList: '/admin/get-gifts'
+    getGiftsList: '/admin/get-gifts',
+    editGiftCategory: '/admin/edit-giftcate',
+    addGiftCategory: '/admin/add-giftcate'
 }

@@ -1,0 +1,20 @@
+.tag {
+    margin-left: 10px;
+}
+.input-new-tag {
+    width: 90px;
+    margin-left: 10px;
+    vertical-align: bottom;
+}
+.button-new-tag {
+    margin-left: 10px;
+    height: 32px;
+    line-height: 30px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.tag-box {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}

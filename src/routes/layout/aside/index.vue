@@ -35,6 +35,7 @@
                 </template>
                 <el-menu-item-group>
                     <el-menu-item index="giftspost" @click="jump('/front-user')">礼品订单</el-menu-item>
+                    <el-menu-item index="giftcategory" @click="jump('/gift-category')">礼品分类</el-menu-item>
                     <el-menu-item index="giftslist" @click="jump('/gift-manage')">礼品列表</el-menu-item>
                 </el-menu-item-group>
             </el-submenu>

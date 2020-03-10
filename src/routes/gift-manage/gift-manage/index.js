@@ -1,9 +1,11 @@
 import EditGift from '../components/edit-gift/index.vue'
+import GiftCategory from '../components/category-manage/index.vue'
 import ENV from 'Config/env.js'
 export default {
     data() {
         return {
             dialogShow: false,
+            categoryShow: false,
             form: {
                 gift_category: -1,
                 visible: -1,
@@ -28,11 +30,9 @@ export default {
             env: ENV
         }
     },
-    computed: {
-
-    },
     components: {
-        EditGift
+        EditGift,
+        GiftCategory
     },
     created() {
         this.getGiftsList()
@@ -44,13 +44,16 @@ export default {
             this.axios.get(url).then(res => {
                 if(res.data.code === 0){
                     this.cateList = res.data.data
-                    this.categoryList = this.cateList
+                    this.categoryList = JSON.parse(JSON.stringify(this.cateList))
                     this.categoryList.unshift({name: '全部', id: -1})
                 }
             })
         },
-        closeUpdate(){
+        closeUpdate() {
             this.dialogShow = false
+        },
+        closeCategory() {
+            this.categoryShow = false
         },
         addCate() {
             this.currentGift = {
@@ -78,6 +81,9 @@ export default {
         editCate(gift) {
             this.currentGift = gift
             this.dialogShow = true
+        },
+        openCategory() {
+            this.categoryShow = true
         }
     }
 }

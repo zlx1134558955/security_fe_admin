@@ -106,7 +106,9 @@ let router = new VueRouter({
                     addGift: Api.addGift,
                     editGift: Api.editGift,
                     getGiftCate: Api.getGiftCate,
-                    getGiftsList: Api.getGiftsList
+                    getGiftsList: Api.getGiftsList,
+                    editGiftCategory: Api.editGiftCategory,
+                    addGiftCategory: Api.addGiftCategory
                 }
             }
         }

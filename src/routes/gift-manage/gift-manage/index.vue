@@ -19,7 +19,10 @@
                     </el-select>
                 </div>
             </div>
-            <el-button type="primary" size="mini" class="add-btn" @click="addCate">添加礼品</el-button>
+            <div>
+                <el-button type="primary" size="mini" @click="openCategory">分类管理</el-button>
+                <el-button type="primary" size="mini" class="add-btn" @click="addCate">添加礼品</el-button>
+            </div>
         </div>
         <!-- 表格 -->
         <el-table :data="giftsList" height="780" style="width: 100%" border>
@@ -48,14 +51,15 @@
                 </template>
             </el-table-column>
             <el-table-column prop="id" label="操作">
-                    <template slot-scope="gift">
-                        <el-button type="primary" size="mini" class="add-btn" @click="editCate(gift.row)">编辑</el-button>
-                    </template>
-                </el-table-column>
+                <template slot-scope="gift">
+                    <el-button type="primary" size="mini" class="add-btn" @click="editCate(gift.row)">编辑</el-button>
+                </template>
+            </el-table-column>
         </el-table>
         <!-- 添加或者编辑礼品子组件 -->
         <EditGift :dialogShow="dialogShow" @close="closeUpdate" :currentGift="currentGift" @getGiftsList="getGiftsList"
             :cateList="cateList"></EditGift>
+        <GiftCategory :dialogShow="categoryShow" @close="closeCategory" :cateList="cateList" @getGiftCate="getGiftCate"></GiftCategory>
     </div>
 </template>
 <style scoped lang="scss" src="./index.scss"></style>
