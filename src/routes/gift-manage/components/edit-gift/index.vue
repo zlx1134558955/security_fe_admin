@@ -6,6 +6,12 @@
         <el-form-item label="礼品名称" prop="title" class="gift-name">
           <el-input v-model="form.title" placeholder="请输入礼品名称"></el-input>
         </el-form-item>
+        <el-form-item label="礼品类型" prop="type">
+          <el-radio-group v-model="form.type">
+            <el-radio :label="1">实物</el-radio>
+            <el-radio :label="2">虚拟</el-radio>
+          </el-radio-group>
+        </el-form-item>
         <el-form-item label="礼品价格" prop="price">
           <el-input-number v-model="form.price" :min="1" label="安全点"></el-input-number>
         </el-form-item>

@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import App from './app.vue'
-import VueRouter from 'vue-router'
 import router from './router.js'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
@@ -11,7 +10,6 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import MD5 from 'js-md5'
 
-Vue.use(VueRouter)
 Vue.use(ElementUI)
 Vue.use(VueAxios, axios)
 

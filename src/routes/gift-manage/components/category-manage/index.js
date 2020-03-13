@@ -21,6 +21,7 @@ export default {
     },
     editCurrent (currentIndex) {
       this.currentIndex = currentIndex
+      this.currentValue = this.list[this.currentIndex].name
       this.$nextTick(_ => {
         this.$refs.saveCurrentInput[0].$refs.input.focus()
       })

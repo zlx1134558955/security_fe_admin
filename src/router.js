@@ -8,6 +8,8 @@ import PostList from '@/routes/post_manage/index.vue'
 import PostDetail from '@/routes/post_detail/index.vue'
 import CategoryManage from '@/routes/category-manage/index.vue'
 import GiftManage from '@/routes/gift-manage/gift-manage/index.vue'
+import GiftOrder from '@/routes/gift-manage/gift-order/index.vue'
+import GiftDetail from '@/routes/gift-manage/gift-detail/index.vue'
 Vue.use(VueRouter)
 const router = new VueRouter({
   routes: [
@@ -106,6 +108,28 @@ const router = new VueRouter({
           getGiftsList: Api.getGiftsList,
           editGiftCategory: Api.editGiftCategory,
           addGiftCategory: Api.addGiftCategory
+        }
+      }
+    },
+    {
+      path: '/gift-order',
+      component: GiftOrder,
+      name: '礼品订单',
+      meta: {
+        api: {
+          getGiftOrderList: Api.getGiftOrderList
+        }
+      }
+    },
+    {
+      path: '/gift-detail',
+      component: GiftDetail,
+      name: '礼品详情',
+      meta: {
+        api: {
+          getGiftOrderDetail: Api.getGiftOrderDetail,
+          handleOrder: Api.handleOrder,
+          cancelOrder: Api.cancelOrder
         }
       }
     }

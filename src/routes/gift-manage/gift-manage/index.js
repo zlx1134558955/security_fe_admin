@@ -1,5 +1,6 @@
 import EditGift from '../components/edit-gift/index.vue'
 import GiftCategory from '../components/category-manage/index.vue'
+import MAP from '@/utils/map/map'
 import ENV from 'Config/env.js'
 export default {
   data () {
@@ -18,6 +19,7 @@ export default {
         title: '',
         price: 1,
         stock: 1,
+        type: 1,
         visible: 1,
         gift_category: 1,
         image: 'default.jpg',
@@ -27,7 +29,8 @@ export default {
       giftsList: [],
       cateList: [], // 传给子组件的礼品类别
       categoryList: [], // 自己过滤选择的礼品类别
-      env: ENV
+      env: ENV,
+      map: MAP.gift_type
     }
   },
   components: {
@@ -61,6 +64,7 @@ export default {
         title: '',
         price: 1,
         stock: 1,
+        type: 1,
         visible: 1,
         gift_category: 1,
         image: 'default.jpg',

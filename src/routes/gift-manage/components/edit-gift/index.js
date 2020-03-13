@@ -5,6 +5,7 @@ export default {
       labelPosition: 'right',
       form: {
         id: 0,
+        type: 1,
         title: '',
         price: 1,
         stock: 1,
@@ -19,6 +20,9 @@ export default {
         title: [
           { required: true, message: '请输入礼品名称', trigger: 'blur' },
           { min: 1, max: 40, message: '礼品名称不得超过40个字符', trigger: 'blur' }
+        ],
+        type: [
+          { required: true, message: '请选择类型', trigger: 'change' }
         ],
         price: [
           { required: true, message: '请输入价格', trigger: 'change' }
@@ -68,6 +72,7 @@ export default {
         }
         form.append('chunk', '0')
         form.append('id', this.form.id)
+        form.append('type', this.form.type)
         form.append('title', this.form.title)
         form.append('price', this.form.price)
         form.append('stock', this.form.stock)

@@ -1,0 +1,77 @@
+.content {
+  position: relative;
+  padding: 30px;
+  .back {
+    position: absolute;
+    top: 10px;
+    right: 30px;
+  }
+}
+h2 {
+  color: #606266;
+  margin-bottom: 10px;
+}
+.little-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.gift-image {
+  height: 200px;
+  width: 200px;
+  vertical-align: middle;
+}
+.top-box {
+  display: flex;
+}
+.right-box {
+  margin-left: 30px;
+p {
+  margin: 5px 0;
+}
+}
+/deep/ .el-collapse-item__content {
+  padding-bottom: 0;
+}
+/deep/ .el-collapse-item__wrap {
+  border-bottom: 0;
+  background-color: rgb(250, 250, 250);
+}
+.el-collapse {
+  border: none;
+}
+pre {
+  color: #909399;
+}
+/deep/ .el-collapse-item__header {
+  border-bottom: none;
+  height: 30px;
+  line-height: 30px;
+  background-color: rgb(250, 250, 250);
+}
+.order-info {
+  font-size: 14px;
+}
+.content {
+  position: relative;
+  .back {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+  }
+}
+/deep/ .el-input__inner,
+/deep/ .el-textarea__inner {
+  width: 400px;
+}
+.el-input {
+  width: 400px;
+}
+.input-box {
+  /deep/ .el-form-item__content {
+    display: flex;
+    align-items: center;
+  }
+}
+.input-tip {
+  margin-left: 10px;
+}

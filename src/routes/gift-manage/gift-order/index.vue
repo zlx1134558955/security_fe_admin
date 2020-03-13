@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 顶部过滤栏 -->
-    <div class="btn-box">
+    <!-- <div class="btn-box">
       <div class="select-box">
         <div class="category-box">
           <span>礼品类别：</span>
@@ -23,49 +23,38 @@
         <el-button type="primary" size="mini" @click="openCategory">分类管理</el-button>
         <el-button type="primary" size="mini" class="add-btn" @click="addCate">添加礼品</el-button>
       </div>
-    </div>
+    </div> -->
     <!-- 表格 -->
-    <el-table :data="giftsList" height="780" style="width: 100%" border>
-      <el-table-column prop="title" label="礼品名称" width="250">
+    <el-table :data="list" height="780" style="width: 100%" border>
+      <el-table-column prop="account" label="用户账号" width="200">
       </el-table-column>
-      <el-table-column prop="type" label="礼品类型" width="140">
+      <el-table-column prop="title" label="礼品名称" width="400">
+      </el-table-column>
+      <el-table-column prop="create_time" label="创建时间" width="250">
         <template slot-scope="gift">
-          <span>{{ map[gift.row.type] }}</span>
+          <span>{{ gift.row.create_time | timeFormat('yyyy-MM-dd hh:mm:ss') }}</span>
         </template>
       </el-table-column>
-      <el-table-column prop="price" label="礼品图片" width="170">
+      <el-table-column prop="type" label="订单类型">
         <template slot-scope="gift">
-          <img :src="env.giftDIR + gift.row.image" alt="礼品图片" width="150" class="gift-img">
+          <span>{{ map.gift_type[gift.row.type] }}</span>
         </template>
       </el-table-column>
-      <el-table-column prop="detail" label="礼品详情" width="450">
+      <el-table-column prop="cate" label="礼品分类">
+      </el-table-column>
+      <el-table-column prop="num" label="兑换数量">
+      </el-table-column>
+      <el-table-column prop="status" label="订单状态">
         <template slot-scope="gift">
-          <div class="gift-detail">{{ gift.row.detail }}</div>
+          <span>{{ map.gift_status[gift.row.status] }}</span>
         </template>
       </el-table-column>
-      <el-table-column prop="price" label="礼品价格" width="140">
-      </el-table-column>
-      <el-table-column prop="stock" label="礼品库存" width="140">
-      </el-table-column>
-      <el-table-column prop="redeemed" label="已兑数量" width="140">
-      </el-table-column>
-      <el-table-column prop="visible" label="上架状态" width="130">
+      <el-table-column prop="id" label="操作" width="140">
         <template slot-scope="gift">
-          <el-tag type="success" v-if="gift.row.visible === 1">已上架</el-tag>
-          <el-tag type="info" v-if="gift.row.visible === 2">已下架</el-tag>
-        </template>
-      </el-table-column>
-      <el-table-column prop="id" label="操作">
-        <template slot-scope="gift">
-          <el-button type="primary" size="mini" class="add-btn" @click="editCate(gift.row)">编辑</el-button>
+          <el-button type="primary" size="mini" @click="jumpDetail(gift.row.id)">查看</el-button>
         </template>
       </el-table-column>
     </el-table>
-    <!-- 添加或者编辑礼品子组件 -->
-    <EditGift :dialogShow="dialogShow" @close="closeUpdate" :currentGift="currentGift" @getGiftsList="getGiftsList"
-      :cateList="cateList"></EditGift>
-    <GiftCategory :dialogShow="categoryShow" @close="closeCategory" :cateList="cateList" @getGiftCate="getGiftCate">
-    </GiftCategory>
   </div>
 </template>
 <style scoped lang="scss" src="./index.scss"></style>
