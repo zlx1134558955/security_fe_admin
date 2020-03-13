@@ -2,15 +2,14 @@
   <div>
     <div class="filt">
       <span>用户状态：</span>
-      <el-select v-model="status" placeholder="请选择用户状态" @change="getFrontUsers">
+      <el-select v-model="status" placeholder="请选择用户状态" @change="getFrontUsers" size="mini">
         <el-option v-for="item in statusList" :key="item.value" :label="item.label" :value="item.value">
         </el-option>
       </el-select>
       <span class="filt-label">用户账号：</span>
-      <el-input v-model="account" placeholder="请输入账号" @change="getFrontUsers"></el-input>
+      <el-input v-model="account" placeholder="请输入账号" @change="getFrontUsers" size="mini"></el-input>
       <span class="filt-label">用户名：</span>
-      <el-input v-model="username" placeholder="请输入用户名" @change="getFrontUsers"></el-input>
-      <el-button type="primary" @click="getFrontUsers">查询</el-button>
+      <el-input v-model="username" placeholder="请输入用户名" @change="getFrontUsers" size="mini"></el-input>
     </div>
     <!-- 表格 -->
     <el-table :data="list" height="780" style="width: 100%" border>

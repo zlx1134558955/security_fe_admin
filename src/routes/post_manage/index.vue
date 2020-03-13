@@ -2,16 +2,16 @@
   <div>
     <div class="filt">
       <span>审核状态：</span>
-      <el-select v-model="status" placeholder="请选择审核状态" @change="getPostList">
+      <el-select v-model="status" placeholder="请选择审核状态" @change="getPostList" size="mini">
         <el-option v-for="item in statusList" :key="item.value" :label="item.label" :value="item.value">
         </el-option>
       </el-select>
       <span class="filt-label">漏洞类型：</span>
-      <el-cascader v-model="cate_id_arr" :options="category" :props="{ expandTrigger: 'hover' }" @change="getPostList">
+      <el-cascader v-model="cate_id_arr" :options="category" :props="{ expandTrigger: 'hover' }" @change="getPostList"
+        size="mini">
       </el-cascader>
       <span class="filt-label">漏洞标题：</span>
-      <el-input v-model="title" placeholder="请输入标题" @change="getPostList"></el-input>
-      <el-button type="primary" @click="getPostList">查询</el-button>
+      <el-input v-model="title" placeholder="请输入标题" @change="getPostList" size="mini"></el-input>
     </div>
     <!-- 表格 -->
     <el-table :data="list" height="780" style="width: 100%" border>

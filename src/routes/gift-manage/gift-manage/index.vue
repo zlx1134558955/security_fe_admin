@@ -1,23 +1,19 @@
 <template>
   <div>
     <!-- 顶部过滤栏 -->
-    <div class="btn-box">
-      <div class="select-box">
-        <div class="category-box">
-          <span>礼品类别：</span>
-          <el-select v-model="form.gift_category" placeholder="请选择礼品类别" size="mini" @change="getGiftsList">
-            <el-option v-for="item in categoryList" :key="item.id" :label="item.name" :value="item.id">
-            </el-option>
-          </el-select>
-        </div>
-        <div class="visible-box">
-          <span>上架状态：</span>
-          <el-select v-model="form.visible" placeholder="请选择上架状态" size="mini" @change="getGiftsList">
-            <el-option label="全部" :value="-1"></el-option>
-            <el-option label="已上架" :value="1"></el-option>
-            <el-option label="已下架" :value="2"></el-option>
-          </el-select>
-        </div>
+    <div class="filt">
+      <div class="left-box">
+        <span>礼品类别：</span>
+        <el-select v-model="form.gift_category" placeholder="请选择礼品类别" size="mini" @change="getGiftsList">
+          <el-option v-for="item in categoryList" :key="item.id" :label="item.name" :value="item.id">
+          </el-option>
+        </el-select>
+        <span class="filt-label">上架状态：</span>
+        <el-select v-model="form.visible" placeholder="请选择上架状态" size="mini" @change="getGiftsList">
+          <el-option label="全部" :value="-1"></el-option>
+          <el-option label="已上架" :value="1"></el-option>
+          <el-option label="已下架" :value="2"></el-option>
+        </el-select>
       </div>
       <div>
         <el-button type="primary" size="mini" @click="openCategory">分类管理</el-button>

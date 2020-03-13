@@ -129,7 +129,8 @@ const router = new VueRouter({
         api: {
           getGiftOrderDetail: Api.getGiftOrderDetail,
           handleOrder: Api.handleOrder,
-          cancelOrder: Api.cancelOrder
+          cancelOrder: Api.cancelOrder,
+          getGiftCate: Api.getGiftCate
         }
       }
     }

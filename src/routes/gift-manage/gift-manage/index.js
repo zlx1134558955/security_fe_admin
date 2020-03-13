@@ -10,9 +10,7 @@ export default {
       form: {
         gift_category: -1,
         visible: -1,
-        title: '',
-        start: 0,
-        pageSize: 10
+        title: ''
       },
       currentGift: {
         id: 0,
@@ -25,7 +23,6 @@ export default {
         image: 'default.jpg',
         detail: ''
       }, // 编辑礼品传给子组件的礼品数据
-      total: 0,
       giftsList: [],
       cateList: [], // 传给子组件的礼品类别
       categoryList: [], // 自己过滤选择的礼品类别
@@ -77,8 +74,7 @@ export default {
       const obj = this.form
       this.axios.post(url, obj).then(res => {
         if (res.data.code === 0) {
-          this.giftsList = res.data.data.list
-          this.total = res.data.data.total
+          this.giftsList = res.data.data
         }
       })
     },
