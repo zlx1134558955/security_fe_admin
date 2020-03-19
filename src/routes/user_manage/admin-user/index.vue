@@ -15,7 +15,7 @@
       <el-button type="primary" @click="addAdmin" v-if="type === 1" size="mini">添加管理员</el-button>
     </div>
     <!-- 表格 -->
-    <el-table :data="list" height="780" style="width: 100%" border>
+    <el-table :data="list" height="760" style="width: 100%" border>
       <el-table-column prop="account" label="账号" width="180">
       </el-table-column>
       <el-table-column prop="username" label="用户名" width="400">

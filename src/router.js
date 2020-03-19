@@ -10,6 +10,9 @@ import CategoryManage from '@/routes/category-manage/index.vue'
 import GiftManage from '@/routes/gift-manage/gift-manage/index.vue'
 import GiftOrder from '@/routes/gift-manage/gift-order/index.vue'
 import GiftDetail from '@/routes/gift-manage/gift-detail/index.vue'
+import NoticeManage from '@/routes/notice-blog/notice-manage/index.vue'
+import AddNotice from '@/routes/notice-blog/add-notice/index.vue'
+import EditNotice from '@/routes/notice-blog/edit-notice/index.vue'
 Vue.use(VueRouter)
 const router = new VueRouter({
   routes: [
@@ -117,7 +120,8 @@ const router = new VueRouter({
       name: '礼品订单',
       meta: {
         api: {
-          getGiftOrderList: Api.getGiftOrderList
+          getGiftOrderList: Api.getGiftOrderList,
+          getGiftCate: Api.getGiftCate
         }
       }
     },
@@ -129,8 +133,42 @@ const router = new VueRouter({
         api: {
           getGiftOrderDetail: Api.getGiftOrderDetail,
           handleOrder: Api.handleOrder,
-          cancelOrder: Api.cancelOrder,
-          getGiftCate: Api.getGiftCate
+          cancelOrder: Api.cancelOrder
+        }
+      }
+    },
+    {
+      path: '/notice-manage',
+      component: NoticeManage,
+      name: '公告管理',
+      meta: {
+        api: {
+          getNoticeList: Api.getNoticeList,
+          deleteNotice: Api.deleteNotice
+        }
+      }
+    },
+    {
+      path: '/add-notice',
+      component: AddNotice,
+      name: '编辑公告',
+      meta: {
+        api: {
+          insertNoticeImg: Api.insertNoticeImg,
+          addNotice: Api.addNotice
+        }
+      }
+    },
+    {
+      path: '/edit-notice',
+      component: EditNotice,
+      name: '编辑公告',
+      meta: {
+        api: {
+          insertNoticeImg: Api.insertNoticeImg,
+          editNotice: Api.editNotice,
+          getNoticeDetail: Api.getNoticeDetail,
+          getNoticeAttachment: Api.getNoticeAttachment
         }
       }
     }

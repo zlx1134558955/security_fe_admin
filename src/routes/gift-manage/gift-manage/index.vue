@@ -21,7 +21,7 @@
       </div>
     </div>
     <!-- 表格 -->
-    <el-table :data="giftsList" height="780" style="width: 100%" border>
+    <el-table :data="giftsList" height="760" style="width: 100%" border>
       <el-table-column prop="title" label="礼品名称" width="250">
       </el-table-column>
       <el-table-column prop="type" label="礼品类型" width="140">

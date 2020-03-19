@@ -21,6 +21,14 @@
         </div>
       </div>
     </div>
+    <el-divider v-if="detail.type === 1"></el-divider>
+    <div v-if="detail.type === 1">
+      <p class="little-title">收货地址</p>
+      <p>收货人：{{ detail.realname }}</p>
+      <p>手机号码：{{ detail.mobile }}</p>
+      <p>邮编：{{ detail.zipcode }}</p>
+      <p>详细地址：{{ detail.adetail }}</p>
+    </div>
     <el-divider></el-divider>
     <div v-show="detail.status === 2">
       <p class="little-title">订单处理情况</p>
@@ -58,7 +66,6 @@
         </div>
         <el-form-item>
           <el-button type="primary" @click="handleOrder" size="mini">提交</el-button>
-          <!-- <el-button>取消</el-button> -->
         </el-form-item>
       </el-form>
     </div>

@@ -2,10 +2,12 @@ import MAP from '@/utils/map/map.js'
 export default {
   data () {
     return {
-      id: this.$router.history.current.query.id,
+      id: parseInt(this.$router.history.current.query.id),
       detail: {
         title: '',
-        rank: 1
+        rank: 1,
+        points: 0,
+        score: 0
       },
       map: MAP,
       categoryMap: [],
@@ -100,6 +102,11 @@ export default {
             type: 'success'
           })
           this.getPostDetail()
+        } else {
+          this.$message({
+            message: res.data.message,
+            type: 'warning'
+          })
         }
       })
     },
@@ -134,11 +141,12 @@ export default {
                 type: 'success'
               })
             }
-          } else {
-            window.location = objectUrl
           }
         }
       })
+    },
+    back () {
+      this.$router.push('/post-list')
     }
   }
 }

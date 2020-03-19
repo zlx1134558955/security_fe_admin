@@ -3,7 +3,7 @@ import ENV from 'Config/env'
 export default {
   data () {
     return {
-      id: this.$router.history.current.query.id,
+      id: parseInt(this.$router.history.current.query.id),
       detail: {
         num: 1,
         status: 1,
@@ -15,7 +15,11 @@ export default {
         create_time: '',
         title: '',
         image: '',
-        account: ''
+        account: '',
+        realname: '',
+        zipcode: '',
+        adetail: '',
+        mobile: ''
       },
       map: MAP,
       env: ENV,
@@ -48,17 +52,12 @@ export default {
     getGiftOrderDetail () {
       const url = this.$route.meta.api.getGiftOrderDetail
       const form = {
-        id: parseInt(this.id)
+        id: this.id
       }
       this.axios.post(url, form).then(res => {
         if (res.data.code === 0) {
           this.detail = res.data.data
           this.detail.image = this.env.giftDIR + res.data.data.image
-          this.steps[0].timestamp = this.formatTime(res.data.data.create_time, 'yyyy-MM-dd hh:mm:ss')
-          if (res.data.data.end_time) {
-            this.steps[1].timestamp = this.formatTime(res.data.data.end_time, 'yyyy-MM-dd hh:mm:ss')
-            this.steps[1].color = '#409EFF'
-          }
         }
       })
     },

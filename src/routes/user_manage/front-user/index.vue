@@ -12,7 +12,7 @@
       <el-input v-model="username" placeholder="请输入用户名" @change="getFrontUsers" size="mini"></el-input>
     </div>
     <!-- 表格 -->
-    <el-table :data="list" height="780" style="width: 100%" border>
+    <el-table :data="list" height="760" style="width: 100%" border>
       <el-table-column prop="account" label="账号" width="180">
       </el-table-column>
       <el-table-column prop="username" label="用户名">

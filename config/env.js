@@ -3,5 +3,7 @@ export default {
   headerDIR: 'http://localhost:8888/headers/',
   insertDIR: 'http://localhost:8888/inserts/',
   settingDIR: 'http://localhost:8888/settings/',
-  giftDIR: 'http://localhost:8888/gifts/'
+  giftDIR: 'http://localhost:8888/gifts/',
+  noticeCoverDIR: 'http://localhost:8888/blog_covers/',
+  noticeInsertDIR: 'http://localhost:8888/blog_inserts/'
 }

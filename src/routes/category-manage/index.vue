@@ -4,7 +4,7 @@
       <el-button type="primary" size="mini" class="add-btn" @click="addCate">添加漏洞分类</el-button>
     </div>
     <!-- 表格 -->
-    <el-table :data="list" height="800" style="width: 100%" border>
+    <el-table :data="list" height="760" style="width: 100%" border>
       <el-table-column type="index" width="50" label="序号">
       </el-table-column>
       <el-table-column prop="name" label="漏洞名称" width="600">

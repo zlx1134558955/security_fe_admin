@@ -31,5 +31,12 @@ export default {
   getGiftOrderList: '/admin/gift-order-list',
   getGiftOrderDetail: '/admin/gift-detail',
   handleOrder: '/admin/handle-order',
-  cancelOrder: '/admin/cancel-order'
+  cancelOrder: '/admin/cancel-order',
+  insertNoticeImg: '/admin/insert-notice-img',
+  addNotice: '/admin/add-notice',
+  editNotice: '/admin/edit-notice',
+  getNoticeList: '/admin/notice-list',
+  getNoticeDetail: '/admin/notice-detail',
+  getNoticeAttachment: '/admin/get-notice-attachment',
+  deleteNotice: '/admin/delete-notice'
 }

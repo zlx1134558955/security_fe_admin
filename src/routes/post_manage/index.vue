@@ -14,7 +14,7 @@
       <el-input v-model="title" placeholder="请输入标题" @change="getPostList" size="mini"></el-input>
     </div>
     <!-- 表格 -->
-    <el-table :data="list" height="780" style="width: 100%" border>
+    <el-table :data="list" height="760" style="width: 100%" border>
       <el-table-column prop="title" label="标题" width="180">
       </el-table-column>
       <el-table-column prop="cate_id" label="漏洞类型">

@@ -1,0 +1,35 @@
+.add-btn {
+    margin-bottom: 10px;
+}
+.filt {
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.el-input {
+  width: 250px;
+}
+.left-box {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  .filt-label {
+    margin-left: 20px;
+  }
+}
+.notice-detail {
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.visible-box {
+    margin-left: 20px;
+}
+.cover-img {
+  vertical-align: middle;
+  max-height: 100px;
+  max-width: 200px;
+}

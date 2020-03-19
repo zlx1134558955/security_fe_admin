@@ -11,7 +11,7 @@
         <span class="filt-label">上架状态：</span>
         <el-select v-model="gift_status" placeholder="请选择上架状态" size="mini" @change="getGiftOrderList">
           <el-option label="全部" :value="0"></el-option>
-          <el-option v-for="(item, index) in map.gift_status" :key="index" :label="map.gift_status[item]" :value="item">
+          <el-option v-for="(item, index) in status_arr" :key="index" :label="item.title" :value="item.key">
           </el-option>
         </el-select>
       </div>

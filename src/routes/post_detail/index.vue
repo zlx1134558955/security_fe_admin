@@ -1,5 +1,6 @@
 <template>
   <div class="content">
+    <el-button type="primary" size="mini" @click="back" class="back">返回</el-button>
     <div>
       <p class="little-title">基本信息</p>
       <p>漏洞名称：{{ detail.title }}</p>

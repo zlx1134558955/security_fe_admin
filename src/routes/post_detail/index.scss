@@ -27,3 +27,11 @@
 .attach-name {
     color: #409EFF;
 }
+.content {
+  position: relative;
+  .back {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+  }
+}

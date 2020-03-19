@@ -58,9 +58,14 @@ export default {
         if (res.data.code === 0) {
           this.$message({
             message: '用户禁用成功',
-            type: 'warning'
+            type: 'success'
           })
           this.getFrontUsers()
+        } else {
+          this.$message({
+            message: res.data.message,
+            type: 'warning'
+          })
         }
       })
     },
@@ -76,6 +81,11 @@ export default {
             type: 'success'
           })
           this.getFrontUsers()
+        } else {
+          this.$message({
+            message: res.data.message,
+            type: 'warning'
+          })
         }
       })
     },
@@ -92,9 +102,15 @@ export default {
         if (res.data.code === 0) {
           this.$message({
             message: '用户已删除',
-            type: 'warning'
+            type: 'success'
           })
           this.getFrontUsers()
+          this.showDelete = false
+        } else {
+          this.$message({
+            message: res.data.message,
+            type: 'warning'
+          })
           this.showDelete = false
         }
       })
