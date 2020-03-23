@@ -1,6 +1,6 @@
 import EditGift from '../components/edit-gift/index.vue'
 import GiftCategory from '../components/category-manage/index.vue'
-import MAP from '@/utils/map/map'
+import MAP from '@/assets/map/map'
 import ENV from 'Config/env.js'
 export default {
   data () {

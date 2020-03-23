@@ -1,4 +1,4 @@
-import MAP from '@/utils/map/map.js'
+import MAP from '@/assets/map/map.js'
 import ENV from 'Config/env.js'
 import Editor from '@/routes/components/editor/index.vue'
 export default {

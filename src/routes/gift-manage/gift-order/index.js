@@ -1,4 +1,4 @@
-import MAP from '@/utils/map/map'
+import MAP from '@/assets/map/map'
 export default {
   data () {
     return {

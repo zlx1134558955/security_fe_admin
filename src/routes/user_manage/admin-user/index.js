@@ -1,4 +1,4 @@
-import MAP from '@/utils/map/map.js'
+import MAP from '@/assets/map/map.js'
 import AddAdmin from '../add-admin/index.vue'
 export default {
   data () {
