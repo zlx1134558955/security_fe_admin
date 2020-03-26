@@ -9,6 +9,7 @@ import './index.scss'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import MD5 from 'js-md5'
+import '@/utils/derective'
 
 Vue.use(ElementUI)
 Vue.use(VueAxios, axios)

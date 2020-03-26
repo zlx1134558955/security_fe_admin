@@ -49,7 +49,7 @@ const router = new VueRouter({
     {
       path: '/admin-user',
       component: AdminUser,
-      name: '前台用户',
+      name: '管理员用户',
       meta: {
         api: {
           getAdminUsers: Api.getAdminUsers,
@@ -151,7 +151,7 @@ const router = new VueRouter({
     {
       path: '/add-notice',
       component: AddNotice,
-      name: '编辑公告',
+      name: '新增公告',
       meta: {
         api: {
           insertNoticeImg: Api.insertNoticeImg,

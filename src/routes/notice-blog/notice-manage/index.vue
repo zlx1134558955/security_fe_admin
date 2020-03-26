@@ -11,37 +11,31 @@
       </div>
     </div>
     <!-- 表格 -->
-    <el-table :data="list" height="760" style="width: 100%" border>
-      <el-table-column prop="title" label="公告标题" width="300">
+    <el-table :data="list" v-my_table_scroll="760" style="width: 100%" border>
+      <el-table-column prop="title" label="公告标题">
+        <template slot-scope="notice">
+          <HeadName :avatar="env.noticeCoverDIR + notice.row.picture" :name="notice.row.title" :w="30" :h="30">
+          </HeadName>
+        </template>
       </el-table-column>
-      <el-table-column prop="top" label="是否置顶" width="140">
+      <el-table-column prop="top" label="是否置顶" width="100" align="center">
         <template slot-scope="notice">
           <span>{{ map.top[notice.row.top] }}</span>
         </template>
       </el-table-column>
-      <el-table-column prop="picture" label="封面图片" width="200">
-        <template slot-scope="notice">
-          <img :src="env.noticeCoverDIR + notice.row.picture" alt="封面图片" class="cover-img">
-        </template>
-      </el-table-column>
-      <el-table-column prop="content" label="内容" width="300">
-        <template slot-scope="notice">
-          <p class="notice-detail">{{ notice.row.content }}</p>
-        </template>
-      </el-table-column>
-      <el-table-column prop="create_time" label="创建时间" width="250">
+      <el-table-column prop="create_time" label="创建时间" width="180">
         <template slot-scope="notice">
           <span>{{ notice.row.create_time | timeFormat('yyyy-MM-dd hh:mm:ss') }}</span>
         </template>
       </el-table-column>
-      <el-table-column prop="update_time" label="更新时间" width="250">
+      <el-table-column prop="update_time" label="更新时间" width="180">
         <template slot-scope="notice">
           <span>{{ notice.row.update_time | timeFormat('yyyy-MM-dd hh:mm:ss') }}</span>
         </template>
       </el-table-column>
-      <el-table-column prop="id" label="操作">
+      <el-table-column prop="id" label="操作" width="180" align="center">
         <template slot-scope="notice">
-          <el-button type="primary" size="mini" class="add-btn" @click="editNotice(notice.row.id)">编辑公告</el-button>
+          <el-button type="primary" size="mini" class="add-btn" @click="editNotice(notice.row.id)">编辑</el-button>
           <el-button type="danger" size="mini" @click="openDelete(notice.row.id)">删除</el-button>
         </template>
       </el-table-column>

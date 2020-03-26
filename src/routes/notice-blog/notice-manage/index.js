@@ -1,5 +1,6 @@
 import MAP from '@/assets/map/map.js'
 import ENV from 'Config/env.js'
+import HeadName from '@/components/head_name/index.vue'
 export default {
   data () {
     return {
@@ -16,6 +17,7 @@ export default {
     }
   },
   components: {
+    HeadName
   },
   created () {
     this.getNoticeList()

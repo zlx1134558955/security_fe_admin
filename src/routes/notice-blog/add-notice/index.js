@@ -1,6 +1,6 @@
 import MAP from '@/assets/map/map.js'
 import ENV from 'Config/env.js'
-import Editor from '@/routes/components/editor/index.vue'
+import Editor from '@/components/editor/index.vue'
 export default {
   data () {
     return {

@@ -15,27 +15,27 @@
       <el-button type="primary" @click="addAdmin" v-if="type === 1" size="mini">添加管理员</el-button>
     </div>
     <!-- 表格 -->
-    <el-table :data="list" height="760" style="width: 100%" border>
-      <el-table-column prop="account" label="账号" width="180">
+    <el-table :data="list" v-my_table_scroll="760" style="width: 100%" border>
+      <el-table-column prop="account" label="账号" width="150">
       </el-table-column>
-      <el-table-column prop="username" label="用户名" width="400">
+      <el-table-column prop="username" label="用户名">
       </el-table-column>
-      <el-table-column prop="create_at" label="创建时间">
+      <el-table-column prop="create_at" label="创建时间" width="180">
         <template slot-scope="scoped">
           <span>{{ scoped.row.create_at | timeFormat('yyyy-MM-dd hh:mm:ss') }}</span>
         </template>
       </el-table-column>
-      <el-table-column prop="update_at" label="最后登录时间">
+      <el-table-column prop="update_at" label="最后登录时间" width="180">
         <template slot-scope="scoped">
           <span>{{ scoped.row.update_at | timeFormat('yyyy-MM-dd hh:mm:ss') }}</span>
         </template>
       </el-table-column>
-      <el-table-column prop="status" label="用户状态">
+      <el-table-column prop="status" label="用户状态" width="100" align="center">
         <template slot-scope="scoped">
           <span>{{ map.user_status[scoped.row.status] }}</span>
         </template>
       </el-table-column>
-      <el-table-column prop="id" label="操作" width="180">
+      <el-table-column prop="id" label="操作" width="180" align="center">
         <template slot-scope="scoped">
           <el-button type="primary" size="mini"
             v-if="scoped.row.status === 0 && type === 1 && scoped.row.id != currentId"

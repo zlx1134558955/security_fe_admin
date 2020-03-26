@@ -2,10 +2,6 @@
   <el-aside width="200px">
     <el-menu :default-active="active" class="el-menu-vertical-demo" background-color="#545c64" text-color="#fff"
       active-text-color="#ffd04b">
-      <el-menu-item index="2">
-        <i class="el-icon-document"></i>
-        <span slot="title">daohang2</span>
-      </el-menu-item>
       <el-submenu index="post">
         <template slot="title">
           <i class="el-icon-document"></i>
@@ -43,7 +39,6 @@
         </template>
         <el-menu-item-group>
           <el-menu-item index="notice" @click="jump('/notice-manage')">公告管理</el-menu-item>
-          <el-menu-item index="blog" @click="jump('/admin-user')">博客管理</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
       <el-menu-item index="setting" @click="jump('/setting')">

@@ -3,7 +3,7 @@
     <Aside></Aside>
     <el-container class="right">
       <Header @login="login" @logout="logout"></Header>
-      <el-main>
+      <el-main class="box">
         <router-view></router-view>
       </el-main>
     </el-container>
@@ -19,10 +19,31 @@
   .right {
     flex-direction: column;
   }
+
+  .box {
+    height: 100vh;
+    overflow: auto;
+    margin-right: 2px;
+  }
+
+  .box::-webkit-scrollbar {
+    width: 6px;
+    transform: translateX(-10px);
+  }
+
+  .box::-webkit-scrollbar-thumb {
+    cursor: pointer;
+    background-color: #ddd;
+    border-radius: 3px;
+  }
+
+  .box::-webkit-scrollbar-thumb:hover {
+    background-color: #bbb;
+  }
 </style>
 <script>
-  import Register from '@/routes/components/register/index.vue'
-  import Login from '@/routes/components/login/index.vue'
+  import Register from '@/components/register/index.vue'
+  import Login from '@/components/login/index.vue'
   import Aside from '@/routes/layout/aside/index.vue'
   import Header from '@/routes/layout/header/index.vue'
   import Api from 'Config/api.js'

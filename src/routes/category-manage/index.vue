@@ -4,17 +4,17 @@
       <el-button type="primary" size="mini" class="add-btn" @click="addCate">添加漏洞分类</el-button>
     </div>
     <!-- 表格 -->
-    <el-table :data="list" height="760" style="width: 100%" border>
-      <el-table-column type="index" width="50" label="序号">
+    <el-table :data="list" style="width: 100%" border v-my_table_scroll="760">
+      <el-table-column type="index" width="50" label="序号" align="center">
       </el-table-column>
-      <el-table-column prop="name" label="漏洞名称" width="600">
-      </el-table-column>
-      <el-table-column prop="pid" label="漏洞所属父分类名称">
+      <el-table-column prop="pid" label="父类名称" width="150" align="center">
         <template slot-scope="scoped">
           <span>{{ cateMap[scoped.row.pid] }}</span>
         </template>
       </el-table-column>
-      <el-table-column prop="id" label="操作" width="150">
+      <el-table-column prop="name" label="漏洞名称">
+      </el-table-column>
+      <el-table-column prop="id" label="操作" width="100" align="center">
         <template slot-scope="scoped">
           <el-button type="primary" size="mini" @click="updateCate(scoped.row)">修改</el-button>
         </template>

@@ -17,31 +17,31 @@
       </div>
     </div>
     <!-- 表格 -->
-    <el-table :data="list" height="780" style="width: 100%" border>
-      <el-table-column prop="account" label="用户账号" width="200">
-      </el-table-column>
-      <el-table-column prop="title" label="礼品名称" width="400">
-      </el-table-column>
-      <el-table-column prop="create_time" label="创建时间" width="250">
+    <el-table :data="list" v-my_table_scroll="780" style="width: 100%" border>
+      <el-table-column prop="create_time" label="创建时间" width="180">
         <template slot-scope="gift">
           <span>{{ gift.row.create_time | timeFormat('yyyy-MM-dd hh:mm:ss') }}</span>
         </template>
       </el-table-column>
-      <el-table-column prop="type" label="订单类型">
+      <el-table-column prop="account" label="用户账号" width="150">
+      </el-table-column>
+      <el-table-column prop="title" label="礼品名称">
+      </el-table-column>
+      <el-table-column prop="num" label="兑换数量" width="100" align="center">
+      </el-table-column>
+      <el-table-column prop="type" label="订单类型" width="100" align="center">
         <template slot-scope="gift">
           <span>{{ map.gift_type[gift.row.type] }}</span>
         </template>
       </el-table-column>
-      <el-table-column prop="cate" label="礼品分类">
+      <el-table-column prop="cate" label="礼品分类" width="150" align="center">
       </el-table-column>
-      <el-table-column prop="num" label="兑换数量">
-      </el-table-column>
-      <el-table-column prop="status" label="订单状态">
+      <el-table-column prop="status" label="订单状态" width="100" align="center">
         <template slot-scope="gift">
           <span>{{ map.gift_status[gift.row.status] }}</span>
         </template>
       </el-table-column>
-      <el-table-column prop="id" label="操作" width="140">
+      <el-table-column prop="id" label="操作" width="100" align="center">
         <template slot-scope="gift">
           <el-button type="primary" size="mini" @click="jumpDetail(gift.row.id)">查看</el-button>
         </template>
