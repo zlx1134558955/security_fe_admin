@@ -13,7 +13,8 @@
     </el-form>
     <p class="err">{{ err }}</p>
     <div class="login-bottom">
-      <el-button type="primary" @click="login" v-loading.fullscreen.lock="fullscreenLoading">保存</el-button>
+      <el-button type="primary" @click="edit" v-loading.fullscreen.lock="fullscreenLoading" v-if="id!==0">保存</el-button>
+      <el-button type="primary" @click="add" v-loading.fullscreen.lock="fullscreenLoading" v-if="id===0">添加</el-button>
     </div>
     <span slot="footer" class="dialog-footer">
     </span>

@@ -29,7 +29,7 @@ const router = new VueRouter({
       name: '站点管理',
       meta: {
         api: {
-          setWebsite: Api.setWebsite
+          site: Api.site
         }
       }
     },
@@ -70,7 +70,7 @@ const router = new VueRouter({
       meta: {
         api: {
           getPostList: Api.getPostList,
-          getCategory: Api.getCategory
+          category: Api.category
         }
       }
     },
@@ -81,7 +81,7 @@ const router = new VueRouter({
       meta: {
         api: {
           getPostDetail: Api.getPostDetail,
-          getCategoryMap: Api.getCategoryMap,
+          category: Api.category,
           reviewPost: Api.reviewPost,
           getPostState: Api.getPostState,
           getAttachment: Api.getAttachment
@@ -94,8 +94,7 @@ const router = new VueRouter({
       name: '漏洞分类管理',
       meta: {
         api: {
-          getCategoryMap: Api.getCategoryMap,
-          updateCategory: Api.updateCategory
+          category: Api.category
         }
       }
     },
@@ -107,10 +106,8 @@ const router = new VueRouter({
         api: {
           addGift: Api.addGift,
           editGift: Api.editGift,
-          getGiftCate: Api.getGiftCate,
-          getGiftsList: Api.getGiftsList,
-          editGiftCategory: Api.editGiftCategory,
-          addGiftCategory: Api.addGiftCategory
+          giftCategory: Api.giftCategory,
+          getGiftsList: Api.getGiftsList
         }
       }
     },
@@ -121,7 +118,7 @@ const router = new VueRouter({
       meta: {
         api: {
           getGiftOrderList: Api.getGiftOrderList,
-          getGiftCate: Api.getGiftCate
+          giftCategory: Api.giftCategory
         }
       }
     },

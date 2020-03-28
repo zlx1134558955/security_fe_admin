@@ -28,7 +28,7 @@ export default {
     },
     handleInputConfirm () {
       if (this.inputValue !== '') {
-        const url = this.$route.meta.api.addGiftCategory
+        const url = this.$route.meta.api.giftCategory
         const item = {
           name: this.inputValue
         }
@@ -44,10 +44,11 @@ export default {
     },
     handleCurrentConfirm () {
       if (this.currentValue !== '') {
-        const url = this.$route.meta.api.editGiftCategory
-        const item = this.list[this.currentIndex]
-        item.name = this.currentValue
-        this.axios.post(url, item).then(res => {
+        const url = this.$route.meta.api.giftCategory + `/${this.list[this.currentIndex].id.toString()}`
+        const obj = {
+          name: this.currentValue
+        }
+        this.axios.put(url, obj).then(res => {
           if (res.data.code === 0) {
             this.$emit('getGiftCate')
           }

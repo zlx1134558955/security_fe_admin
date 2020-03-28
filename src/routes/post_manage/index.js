@@ -69,12 +69,39 @@ export default {
       })
     },
     getCategory () {
-      const url = this.$route.meta.api.getCategory
+      const url = this.$route.meta.api.category
       this.axios.get(url).then(res => {
         if (res.data.code === 0) {
-          this.category = res.data.data
+          this.handleCategoryTree(res.data.data)
         }
       })
+    },
+    handleCategoryTree (result) {
+      const list = []
+      for (const bug of result) {
+        if (bug.pid === 0) {
+          list.push(bug)
+        }
+      }
+      const arr = []
+      list.forEach(item => {
+        const obj = {
+          value: item.id,
+          label: item.name,
+          children: []
+        }
+        arr.push(obj)
+        for (const newItem of result) {
+          if (newItem.pid === item.id) {
+            const bug = {
+              value: newItem.id,
+              label: newItem.name
+            }
+            obj.children.push(bug)
+          }
+        }
+      })
+      this.category = arr
     },
     getCateName (id) {
       const arr = this.category

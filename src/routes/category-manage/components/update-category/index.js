@@ -29,7 +29,7 @@ export default {
     handleClose () {
       this.$emit('close')
     },
-    login () {
+    edit () {
       this.err = ''
       // 表单前端验证
       this.$refs.formName.validate((valid) => {
@@ -39,19 +39,48 @@ export default {
         // 表单数据
         const form = {
           name: this.form.name,
-          pid: this.form.pid,
-          id: this.id
+          pid: this.form.pid
         }
         this.fullscreenLoading = true
-        // 发送登录请求
-        const url = this.$route.meta.api.updateCategory
+        const url = this.$route.meta.api.category + `/${this.id}`
+        this.axios.put(url, form)
+          .then(res => {
+            if (res.data.code === 0) {
+              this.$emit('close')
+              this.fullscreenLoading = false
+              this.$message({
+                message: '更新成功',
+                type: 'success'
+              })
+              location.reload()
+            } else {
+              this.err = res.data.message
+              this.fullscreenLoading = false
+            }
+          })
+      })
+    },
+    add () {
+      this.err = ''
+      // 表单前端验证
+      this.$refs.formName.validate((valid) => {
+        if (!valid) {
+          return
+        }
+        // 表单数据
+        const form = {
+          name: this.form.name,
+          pid: this.form.pid
+        }
+        this.fullscreenLoading = true
+        const url = this.$route.meta.api.category
         this.axios.post(url, form)
           .then(res => {
             if (res.data.code === 0) {
               this.$emit('close')
               this.fullscreenLoading = false
               this.$message({
-                message: '保存成功',
+                message: '添加成功',
                 type: 'success'
               })
               location.reload()

@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     getCategory () {
-      const url = this.$route.meta.api.getCategoryMap
+      const url = this.$route.meta.api.category
       this.axios.get(url).then(res => {
         if (res.data.code === 0) {
           this.list = res.data.data

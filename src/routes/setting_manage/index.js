@@ -24,7 +24,7 @@ export default {
   },
   methods: {
     getSite () {
-      this.axios.get(Api.getSite).then(res => {
+      this.axios.get(Api.site).then(res => {
         if (res.data.code === 0) {
           const setting = res.data.data
           for (const item in setting) {
@@ -43,9 +43,8 @@ export default {
       const file = this.image // 获取文件对象
       const form = new FormData()
       if (file) {
-        form.append('file', file, file.name) // 将文件添加到formdata中
+        form.append('picture', file, file.name) // 将文件添加到formdata中
       }
-      form.append('chunk', '0')
       form.append('site_name_cn', this.form.site_name_cn)
       form.append('site_name_en', this.form.site_name_en)
       form.append('site_intro', this.form.site_intro)
@@ -58,7 +57,7 @@ export default {
       const config = {
         headers: { 'Content-Type': 'multipart/form-data' }
       }
-      this.axios.post(this.$route.meta.api.setWebsite, form, config) // 传输数据
+      this.axios.put(this.$route.meta.api.site, form, config) // 传输数据
         .then(res => {
           if (res.data.code === 0) {
             this.$message({
