@@ -39,10 +39,8 @@ const router = new VueRouter({
       name: '前台用户',
       meta: {
         api: {
-          getFrontUsers: Api.getFrontUsers,
-          forbidFrontUser: Api.forbidFrontUser,
-          unfreezeFrontUser: Api.unfreezeFrontUser,
-          deleteFrontUser: Api.deleteFrontUser
+          memberList: Api.memberList,
+          member: Api.member
         }
       }
     },
@@ -52,14 +50,8 @@ const router = new VueRouter({
       name: '管理员用户',
       meta: {
         api: {
-          getAdminUsers: Api.getAdminUsers,
-          forbidFrontUser: Api.forbidFrontUser,
-          unfreezeFrontUser: Api.unfreezeFrontUser,
-          deleteFrontUser: Api.deleteFrontUser,
-          addAdmin: Api.addAdmin,
-          forbidAdminUser: Api.forbidAdminUser,
-          unfreezeAdminUser: Api.unfreezeAdminUser,
-          deleteAdminUser: Api.deleteAdminUser
+          managerList: Api.managerList,
+          manager: Api.manager
         }
       }
     },
@@ -69,7 +61,7 @@ const router = new VueRouter({
       name: '漏洞提交列表',
       meta: {
         api: {
-          getPostList: Api.getPostList,
+          postList: Api.postList,
           category: Api.category
         }
       }
@@ -80,11 +72,10 @@ const router = new VueRouter({
       name: '漏洞详情审核',
       meta: {
         api: {
-          getPostDetail: Api.getPostDetail,
+          post: Api.post,
           category: Api.category,
-          reviewPost: Api.reviewPost,
-          getPostState: Api.getPostState,
-          getAttachment: Api.getAttachment
+          postState: Api.postState,
+          postAttachment: Api.postAttachment
         }
       }
     },
@@ -104,10 +95,9 @@ const router = new VueRouter({
       name: '礼品管理',
       meta: {
         api: {
-          addGift: Api.addGift,
-          editGift: Api.editGift,
+          gift: Api.gift,
           giftCategory: Api.giftCategory,
-          getGiftsList: Api.getGiftsList
+          giftList: Api.giftList
         }
       }
     },
@@ -117,7 +107,7 @@ const router = new VueRouter({
       name: '礼品订单',
       meta: {
         api: {
-          getGiftOrderList: Api.getGiftOrderList,
+          giftOrderList: Api.giftOrderList,
           giftCategory: Api.giftCategory
         }
       }
@@ -128,9 +118,7 @@ const router = new VueRouter({
       name: '礼品详情',
       meta: {
         api: {
-          getGiftOrderDetail: Api.getGiftOrderDetail,
-          handleOrder: Api.handleOrder,
-          cancelOrder: Api.cancelOrder
+          giftOrder: Api.giftOrder
         }
       }
     },
@@ -140,8 +128,8 @@ const router = new VueRouter({
       name: '公告管理',
       meta: {
         api: {
-          getNoticeList: Api.getNoticeList,
-          deleteNotice: Api.deleteNotice
+          notice: Api.notice,
+          noticeList: Api.noticeList
         }
       }
     },
@@ -151,8 +139,8 @@ const router = new VueRouter({
       name: '新增公告',
       meta: {
         api: {
-          insertNoticeImg: Api.insertNoticeImg,
-          addNotice: Api.addNotice
+          noticeInsert: Api.noticeInsert,
+          notice: Api.notice
         }
       }
     },
@@ -162,10 +150,9 @@ const router = new VueRouter({
       name: '编辑公告',
       meta: {
         api: {
-          insertNoticeImg: Api.insertNoticeImg,
-          editNotice: Api.editNotice,
-          getNoticeDetail: Api.getNoticeDetail,
-          getNoticeAttachment: Api.getNoticeAttachment
+          noticeInsert: Api.noticeInsert,
+          notice: Api.notice,
+          noticeAttachment: Api.noticeAttachment
         }
       }
     }

@@ -34,7 +34,7 @@ export default {
   },
   methods: {
     getFrontUsers () {
-      const url = this.$route.meta.api.getFrontUsers
+      const url = this.$route.meta.api.memberList
       const form = {
         status: this.status,
         account: this.account,
@@ -42,19 +42,19 @@ export default {
         start: (this.currentPage - 1) * this.pageSize,
         pageSize: this.pageSize
       }
-      this.axios.post(url, form).then(res => {
+      this.axios.put(url, form).then(res => {
         if (res.data.code === 0) {
-          this.list = res.data.data.list
-          this.total = res.data.data.total
+          this.list = res.data.data.rows
+          this.total = res.data.data.count
         }
       })
     },
     forbidFrontUser (id) {
-      const url = this.$route.meta.api.forbidFrontUser
+      const url = this.$route.meta.api.member + `/${id}`
       const form = {
-        id: id
+        status: 0
       }
-      this.axios.post(url, form).then(res => {
+      this.axios.put(url, form).then(res => {
         if (res.data.code === 0) {
           this.$message({
             message: '用户禁用成功',
@@ -70,11 +70,11 @@ export default {
       })
     },
     unfreezeFrontUser (id) {
-      const url = this.$route.meta.api.unfreezeFrontUser
+      const url = this.$route.meta.api.member + `/${id}`
       const form = {
-        id: id
+        status: 1
       }
-      this.axios.post(url, form).then(res => {
+      this.axios.put(url, form).then(res => {
         if (res.data.code === 0) {
           this.$message({
             message: '用户限制解除',
@@ -94,11 +94,8 @@ export default {
       this.deleteId = id
     },
     deleteUser () {
-      const url = this.$route.meta.api.deleteFrontUser
-      const form = {
-        id: this.deleteId
-      }
-      this.axios.post(url, form).then(res => {
+      const url = this.$route.meta.api.member + `/${this.deleteId}`
+      this.axios.delete(url).then(res => {
         if (res.data.code === 0) {
           this.$message({
             message: '用户已删除',

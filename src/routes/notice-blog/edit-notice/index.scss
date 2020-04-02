@@ -8,14 +8,14 @@
       margin-right: 4px;
   }
 }
-.avatar-uploader .el-upload {
+.cover-uploader .el-upload {
   border: 1px dashed #c9c9c9;
   border-radius: 6px;
   cursor: pointer;
   position: relative;
   overflow: hidden;
 }
-.avatar-uploader .el-upload:hover {
+.cover-uploader .el-upload:hover {
   border-color: #409EFF;
 }
 .avatar-uploader-icon {
@@ -27,7 +27,7 @@
   line-height: 150px;
   text-align: center;
 }
-.avatar-uploader,
+.cover-uploader,
 .avatar {
   height: 150px;
   display: block;

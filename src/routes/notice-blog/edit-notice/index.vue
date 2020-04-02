@@ -7,7 +7,7 @@
           <el-input v-model="notice.title"></el-input>
         </el-form-item>
         <el-form-item label="公告封面图片">
-          <el-upload class="avatar-uploader" action="/" :show-file-list="false" :http-request="setPicture"
+          <el-upload class="cover-uploader" action="/" :show-file-list="false" :http-request="setPicture"
             accept=".jpg,.jpeg,.png,.gif,.bmp,.webp">
             <img v-if="coverImg" :src="coverImg" class="avatar">
             <i v-else class="el-icon-plus avatar-uploader-icon"></i>

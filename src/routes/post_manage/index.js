@@ -53,7 +53,7 @@ export default {
   },
   methods: {
     getPostList () {
-      const url = this.$route.meta.api.getPostList
+      const url = this.$route.meta.api.postList
       const form = {
         status: this.status,
         title: this.title,
@@ -61,10 +61,10 @@ export default {
         start: (this.currentPage - 1) * this.pageSize,
         pageSize: this.pageSize
       }
-      this.axios.post(url, form).then(res => {
+      this.axios.put(url, form).then(res => {
         if (res.data.code === 0) {
-          this.list = res.data.data.list
-          this.total = res.data.data.total
+          this.list = res.data.data.rows
+          this.total = res.data.data.count
         }
       })
     },
@@ -102,6 +102,7 @@ export default {
         }
       })
       this.category = arr
+      this.category.unshift({ value: -1, label: '全部', children: [{ value: -1, label: '全部' }] })
     },
     getCateName (id) {
       const arr = this.category

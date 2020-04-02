@@ -43,14 +43,13 @@ export default {
         if (this.notice.attachment) {
           form.append('attachment', this.notice.attachment, this.notice.attachment.name) // 将文件添加到formdata中
         }
-        form.append('chunk', '0')
         form.append('title', this.notice.title)
         form.append('content', this.notice.content)
         form.append('top', this.notice.top)
         const config = {
           headers: { 'Content-Type': 'multipart/form-data' }
         }
-        this.axios.post(this.$route.meta.api.addNotice, form, config) // 传输数据
+        this.axios.post(this.$route.meta.api.notice, form, config) // 传输数据
           .then(res => {
             if (res.data.code === 0) {
               this.$message({

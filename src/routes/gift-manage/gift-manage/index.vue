@@ -4,7 +4,7 @@
     <div class="filt">
       <div class="left-box">
         <span>礼品类别：</span>
-        <el-select v-model="form.gift_category" placeholder="请选择礼品类别" size="mini" @change="getGiftsList">
+        <el-select v-model="form.gift_category_id" placeholder="请选择礼品类别" size="mini" @change="getGiftsList">
           <el-option v-for="item in categoryList" :key="item.id" :label="item.name" :value="item.id">
           </el-option>
         </el-select>

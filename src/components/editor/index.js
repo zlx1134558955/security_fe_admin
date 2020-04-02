@@ -64,7 +64,6 @@ export default {
       this.$emit('input', this.content)
     },
     insertImg (params) {
-      console.log(111)
       const quill = this.$refs.myQuillEditor.quill // 获取富文本组件实例
       const file = params.file // 获取文件对象
       const form = new FormData()
@@ -73,14 +72,13 @@ export default {
       const config = {
         headers: { 'Content-Type': 'multipart/form-data' }
       }
-      this.axios.post(this.$route.meta.api.insertNoticeImg, form, config) // 传输数据
+      this.axios.post(this.$route.meta.api.noticeInsert, form, config) // 传输数据
         .then(res => {
           if (res.data.code === 0) {
             const src = `${ENV.noticeInsertDIR}${res.data.data}`
             const length = quill.getSelection().index // 获取光标所在位置
             quill.insertEmbed(length, 'image', src) // 插入图片
             quill.setSelection(length + 1) // 调整光标到最后
-            // this.userInfo.avatar = res.data.data
           } else {
             this.$message({
               message: res.data.message,

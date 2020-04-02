@@ -47,15 +47,14 @@ export default {
         if (this.attachment) {
           form.append('attachment', this.attachment, this.attachment.name) // 将文件添加到formdata中
         }
-        form.append('chunk', '0')
-        form.append('id', this.id)
         form.append('title', this.notice.title)
         form.append('content', this.notice.content)
         form.append('top', this.notice.top)
         const config = {
           headers: { 'Content-Type': 'multipart/form-data' }
         }
-        this.axios.post(this.$route.meta.api.editNotice, form, config) // 传输数据
+        const url = this.$route.meta.api.notice + `/${this.id}`
+        this.axios.put(url, form, config) // 传输数据
           .then(res => {
             if (res.data.code === 0) {
               this.$message({
@@ -80,11 +79,8 @@ export default {
       this.attachment = params.file
     },
     getNoticeDetail () {
-      const url = this.$route.meta.api.getNoticeDetail
-      const form = {
-        id: this.id
-      }
-      this.axios.post(url, form).then(res => {
+      const url = this.$route.meta.api.notice + `/${this.id}`
+      this.axios.get(url).then(res => {
         if (res.data.code === 0) {
           this.notice = res.data.data
           this.coverImg = `${this.env.noticeCoverDIR}${this.notice.picture}`
@@ -95,8 +91,8 @@ export default {
       const form = {
         filename: this.notice.attachment
       }
-      const url = this.$route.meta.api.getNoticeAttachment
-      this.axios.post(url, form, { responseType: 'blob' }).then((res) => {
+      const url = this.$route.meta.api.noticeAttachment
+      this.axios.put(url, form, { responseType: 'blob' }).then((res) => {
         // 下载返回文件
         const type = 'application/octet-stream'
         const blob = new Blob([res.data], { type: type })

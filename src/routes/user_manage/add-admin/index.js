@@ -61,7 +61,7 @@ export default {
         }
         this.fullscreenLoading = true
         // 发送添加请求
-        this.axios.post(this.$route.meta.api.addAdmin, form)
+        this.axios.post(this.$route.meta.api.manager, form)
           .then(res => {
             if (res.data.code === 0) {
               this.$emit('close')

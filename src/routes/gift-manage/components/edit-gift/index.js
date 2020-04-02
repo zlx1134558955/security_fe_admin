@@ -10,7 +10,7 @@ export default {
         price: 1,
         stock: 1,
         visible: 1,
-        gift_category: 1,
+        gift_category_id: 1,
         image: 'default.jpg',
         detail: ''
       },
@@ -30,7 +30,7 @@ export default {
         stock: [
           { required: true, message: '请输入库存', trigger: 'change' }
         ],
-        gift_category: [
+        gift_category_id: [
           { required: true, message: '请选择类别', trigger: 'change' }
         ],
         visible: [
@@ -70,36 +70,60 @@ export default {
         if (file) {
           form.append('image', file, file.name) // 将文件添加到formdata中
         }
-        form.append('chunk', '0')
-        form.append('id', this.form.id)
         form.append('type', this.form.type)
         form.append('title', this.form.title)
         form.append('price', this.form.price)
         form.append('stock', this.form.stock)
         form.append('visible', this.form.visible)
-        form.append('gift_category', this.form.gift_category)
+        form.append('gift_category_id', this.form.gift_category_id)
         form.append('detail', this.form.detail)
         const config = {
           headers: { 'Content-Type': 'multipart/form-data' }
         }
-        const url = this.form.id === 0 ? this.$route.meta.api.addGift : this.$route.meta.api.editGift
-        this.axios.post(url, form, config) // 传输数据
-          .then(res => {
-            if (res.data.code === 0) {
-              this.$message({
-                message: '保存成功',
-                type: 'success'
-              })
-              this.$emit('getGiftsList')
-              this.handleClose()
-            } else {
-              this.$message({
-                message: res.data.message,
-                type: 'warning'
-              })
-            }
-          })
+        if (this.form.id === 0) {
+          const url = this.$route.meta.api.gift
+          this.addGift(url, form, config)
+        } else {
+          const url = this.$route.meta.api.gift + `/${this.form.id}`
+          this.editGift(url, form, config)
+        }
       })
+    },
+    addGift (url, form, config) {
+      this.axios.post(url, form, config) // 传输数据
+        .then(res => {
+          if (res.data.code === 0) {
+            this.$message({
+              message: '添加礼品成功',
+              type: 'success'
+            })
+            this.$emit('getGiftsList')
+            this.handleClose()
+          } else {
+            this.$message({
+              message: res.data.message,
+              type: 'warning'
+            })
+          }
+        })
+    },
+    editGift (url, form, config) {
+      this.axios.put(url, form, config) // 传输数据
+        .then(res => {
+          if (res.data.code === 0) {
+            this.$message({
+              message: '编辑礼品成功',
+              type: 'success'
+            })
+            this.$emit('getGiftsList')
+            this.handleClose()
+          } else {
+            this.$message({
+              message: res.data.message,
+              type: 'warning'
+            })
+          }
+        })
     }
   },
   watch: {

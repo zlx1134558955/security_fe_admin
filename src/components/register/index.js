@@ -53,7 +53,7 @@ export default {
         }
         this.fullscreenLoading = true
         // 发送注册请求
-        this.axios.post(Api.register, form)
+        this.axios.post(Api.superManager, form)
           .then(res => {
             if (res.data.code === 0) {
               this.$emit('close')

@@ -19,7 +19,7 @@
           <el-input-number v-model="form.stock" :min="1" label="个"></el-input-number>
         </el-form-item>
         <el-form-item label="礼品类别" prop="gift_category">
-          <el-select v-model="form.gift_category" placeholder="请选择礼品类别">
+          <el-select v-model="form.gift_category_id" placeholder="请选择礼品类别">
             <el-option v-for="item in cateList" :key="item.id" :label="item.name" :value="item.id">
             </el-option>
           </el-select>

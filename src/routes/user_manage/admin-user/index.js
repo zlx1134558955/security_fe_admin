@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     getAdminUsers () {
-      const url = this.$route.meta.api.getAdminUsers
+      const url = this.$route.meta.api.managerList
       const form = {
         status: this.status,
         account: this.account,
@@ -55,19 +55,19 @@ export default {
         start: (this.currentPage - 1) * this.pageSize,
         pageSize: this.pageSize
       }
-      this.axios.post(url, form).then(res => {
+      this.axios.put(url, form).then(res => {
         if (res.data.code === 0) {
-          this.list = res.data.data.list
-          this.total = res.data.data.total
+          this.list = res.data.data.rows
+          this.total = res.data.data.count
         }
       })
     },
     forbidAdminUser (id) {
-      const url = this.$route.meta.api.forbidAdminUser
+      const url = this.$route.meta.api.manager + `/${id}`
       const form = {
-        id: id
+        status: 0
       }
-      this.axios.post(url, form).then(res => {
+      this.axios.put(url, form).then(res => {
         if (res.data.code === 0) {
           this.$message({
             message: '用户禁用成功',
@@ -83,11 +83,11 @@ export default {
       })
     },
     unfreezeAdminUser (id) {
-      const url = this.$route.meta.api.unfreezeAdminUser
+      const url = this.$route.meta.api.manager + `/${id}`
       const form = {
-        id: id
+        status: 1
       }
-      this.axios.post(url, form).then(res => {
+      this.axios.put(url, form).then(res => {
         if (res.data.code === 0) {
           this.$message({
             message: '用户限制解除',
@@ -107,11 +107,8 @@ export default {
       this.deleteId = id
     },
     deleteUser () {
-      const url = this.$route.meta.api.deleteAdminUser
-      const form = {
-        id: this.deleteId
-      }
-      this.axios.post(url, form).then(res => {
+      const url = this.$route.meta.api.manager + `/${this.deleteId}`
+      this.axios.delete(url).then(res => {
         if (res.data.code === 0) {
           this.$message({
             message: '用户已删除',

@@ -9,13 +9,18 @@ export default {
         status: 1,
         type: 2,
         content: '',
-        company: '',
+        company: 'SF',
         tracking_number: '',
         end_time: '',
         create_time: '',
-        title: '',
-        image: '',
-        account: '',
+        gift: {
+          title: '',
+          image: '',
+          detail: ''
+        },
+        member: {
+          account: ''
+        },
         realname: '',
         zipcode: '',
         adetail: '',
@@ -50,38 +55,31 @@ export default {
       return fmt
     },
     getGiftOrderDetail () {
-      const url = this.$route.meta.api.getGiftOrderDetail
-      const form = {
-        id: this.id
-      }
-      this.axios.post(url, form).then(res => {
+      const url = this.$route.meta.api.giftOrder + `/${this.id}`
+      this.axios.get(url).then(res => {
         if (res.data.code === 0) {
           this.detail = res.data.data
-          this.detail.image = this.env.giftDIR + res.data.data.image
+          this.detail.gift.image = this.env.giftDIR + res.data.data.gift.image
         }
       })
     },
     handleOrder () {
-      let url
       let form
+      const url = this.$route.meta.api.giftOrder + `/${parseInt(this.id)}`
       if (this.status === 2) {
-        url = this.$route.meta.api.handleOrder
         form = {
-          id: parseInt(this.id),
           status: this.status,
           tracking_number: this.detail.tracking_number,
           company: this.detail.company,
           content: this.detail.content
         }
       } else {
-        url = this.$route.meta.api.cancelOrder
         form = {
-          id: parseInt(this.id),
           status: this.status,
           content: this.detail.content
         }
       }
-      this.axios.post(url, form).then(res => {
+      this.axios.put(url, form).then(res => {
         if (res.data.code === 0) {
           this.getGiftOrderDetail()
           this.$message({

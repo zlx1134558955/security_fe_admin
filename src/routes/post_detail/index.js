@@ -42,22 +42,16 @@ export default {
       return fmt
     },
     getPostDetail () {
-      const url = this.$route.meta.api.getPostDetail
-      const form = {
-        id: this.id
-      }
-      this.axios.post(url, form).then(res => {
+      const url = this.$route.meta.api.post + `/${this.id}`
+      this.axios.get(url).then(res => {
         if (res.data.code === 0) {
           this.detail = res.data.data
         }
       })
     },
     getPostState () {
-      const url = this.$route.meta.api.getPostState
-      const form = {
-        id: this.id
-      }
-      this.axios.post(url, form).then(res => {
+      const url = this.$route.meta.api.postState + `/${this.id}`
+      this.axios.get(url).then(res => {
         if (res.data.code === 0) {
           this.postState = res.data.data
           const obj = {
@@ -88,14 +82,14 @@ export default {
     },
     reviewPost (status) {
       const form = {
-        id: this.id,
         status: status,
         rank: this.detail.rank,
         score: this.detail.score,
         points: this.detail.points,
         content: this.reason
       }
-      this.axios.post(this.$route.meta.api.reviewPost, form).then(res => {
+      const url = this.$route.meta.api.post + `/${this.id}`
+      this.axios.put(url, form).then(res => {
         if (res.data.code === 0) {
           this.$message({
             message: '状态提交成功',
@@ -114,8 +108,8 @@ export default {
       const form = {
         filename: this.detail.attachment
       }
-      const url = this.$route.meta.api.getAttachment
-      this.axios.post(url, form, { responseType: 'blob' }).then((res) => {
+      const url = this.$route.meta.api.postAttachment
+      this.axios.put(url, form, { responseType: 'blob' }).then((res) => {
         // 下载返回文件
         const type = 'application/octet-stream'
         const blob = new Blob([res.data], { type: type })

@@ -77,14 +77,14 @@
         this.showLogin = false
       },
       getAdminInfo() {
-        this.axios.get(Api.getAdminInfo).then(res => {
+        this.axios.get(Api.manager).then(res => {
           if (res.data.code === 0) {
             this.$store.dispatch('getAdminInfo', res.data.data)
           }
         })
       },
       logout() {
-        this.axios.get(Api.logout).then(res => {
+        this.axios.get(Api.logoutManager).then(res => {
           if (res.data.code === 0) {
             this.$store.dispatch('getAdminInfo', null)
             this.$message('已退出登录')

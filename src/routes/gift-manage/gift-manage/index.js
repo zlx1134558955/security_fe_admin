@@ -8,7 +8,7 @@ export default {
       dialogShow: false,
       categoryShow: false,
       form: {
-        gift_category: -1,
+        gift_category_id: -1,
         visible: -1,
         title: ''
       },
@@ -19,7 +19,7 @@ export default {
         stock: 1,
         type: 1,
         visible: 1,
-        gift_category: 1,
+        gift_category_id: 1,
         image: 'default.jpg',
         detail: ''
       }, // 编辑礼品传给子组件的礼品数据
@@ -63,18 +63,18 @@ export default {
         stock: 1,
         type: 1,
         visible: 1,
-        gift_category: 1,
+        gift_category_id: 1,
         image: 'default.jpg',
         detail: ''
       }
       this.dialogShow = true
     },
     getGiftsList () {
-      const url = this.$route.meta.api.getGiftsList
+      const url = this.$route.meta.api.giftList
       const obj = this.form
-      this.axios.post(url, obj).then(res => {
+      this.axios.put(url, obj).then(res => {
         if (res.data.code === 0) {
-          this.giftsList = res.data.data
+          this.giftsList = res.data.data.rows
         }
       })
     },

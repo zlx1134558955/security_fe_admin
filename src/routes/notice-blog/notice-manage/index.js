@@ -24,16 +24,16 @@ export default {
   },
   methods: {
     getNoticeList () {
-      const url = this.$route.meta.api.getNoticeList
+      const url = this.$route.meta.api.noticeList
       const form = {
         title: this.title,
         start: (this.currentPage - 1) * this.pageSize,
         pageSize: this.pageSize
       }
-      this.axios.post(url, form).then(res => {
+      this.axios.put(url, form).then(res => {
         if (res.data.code === 0) {
-          this.list = res.data.data.list
-          this.total = res.data.data.total
+          this.list = res.data.data.rows
+          this.total = res.data.data.count
         }
       })
     },
@@ -56,11 +56,8 @@ export default {
       this.deleteId = id
     },
     deleteNotice () {
-      const url = this.$route.meta.api.deleteNotice
-      const form = {
-        id: this.deleteId
-      }
-      this.axios.post(url, form).then(res => {
+      const url = this.$route.meta.api.notice + `/${this.deleteId}`
+      this.axios.delete(url).then(res => {
         if (res.data.code === 0) {
           this.$message({
             message: '公告已删除',

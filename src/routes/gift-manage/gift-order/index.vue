@@ -4,7 +4,7 @@
       <!-- 顶部过滤栏 -->
       <div class="filt">
         <span>礼品类别：</span>
-        <el-select v-model="gift_category" placeholder="请选择礼品类别" size="mini" @change="getGiftOrderList">
+        <el-select v-model="gift_category_id" placeholder="请选择礼品类别" size="mini" @change="getGiftOrderList">
           <el-option v-for="item in categoryList" :key="item.id" :label="item.name" :value="item.id">
           </el-option>
         </el-select>
@@ -23,9 +23,9 @@
           <span>{{ gift.row.create_time | timeFormat('yyyy-MM-dd hh:mm:ss') }}</span>
         </template>
       </el-table-column>
-      <el-table-column prop="account" label="用户账号" width="150">
+      <el-table-column prop="member.account" label="用户账号" width="150">
       </el-table-column>
-      <el-table-column prop="title" label="礼品名称">
+      <el-table-column prop="gift.title" label="礼品名称">
       </el-table-column>
       <el-table-column prop="num" label="兑换数量" width="100" align="center">
       </el-table-column>
@@ -34,7 +34,7 @@
           <span>{{ map.gift_type[gift.row.type] }}</span>
         </template>
       </el-table-column>
-      <el-table-column prop="cate" label="礼品分类" width="150" align="center">
+      <el-table-column prop="gift.gift_category.name" label="礼品分类" width="150" align="center">
       </el-table-column>
       <el-table-column prop="status" label="订单状态" width="100" align="center">
         <template slot-scope="gift">
