@@ -14,7 +14,8 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, './index.html'),
-      filename: 'index.html'
+      filename: 'index.html',
+      favicon: path.resolve('favicon.ico')
     }),
     new VueLoaderPlugin(),
     new CleanWebpackPlugin()
@@ -48,7 +49,7 @@ module.exports = {
         common: {
           name: 'common',
           test: /[\\/]src[\\/]/,
-          minSize: 2,
+          minSize: 1024,
           chunks: 'all',
           priority: 5
         },
